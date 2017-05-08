@@ -1,4 +1,4 @@
-package demo.topsnackbar;
+package demo.library;
 
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
@@ -14,8 +14,9 @@ import android.view.animation.LinearInterpolator;
  * @description
  * @modifier
  * @date
- * @since 17/5/5 下午8:06
+ * @since 17/5/8 下午1:18
  */
+
 public class AnimationUtils {
 
     static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
@@ -48,5 +49,4 @@ public class AnimationUtils {
         public void onAnimationRepeat(Animation animation) {
         }
     }
-
 }

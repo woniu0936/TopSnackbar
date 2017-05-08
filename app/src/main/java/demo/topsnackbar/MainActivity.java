@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import demo.library.TopSnackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "hello world is onClick!");
-                TopSnackbar.make(getWindow().getDecorView(), "lalallalala", TopSnackbar.LENGTH_SHORT).show();
+                TopSnackbar.make(getWindow().getDecorView(), "说的发送大公司是多个电饭锅电饭锅地方郭德纲水电费费郭德纲电饭锅地方高档房个的风格的", TopSnackbar.LENGTH_SHORT).show();
             }
         });
     }

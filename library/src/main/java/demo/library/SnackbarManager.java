@@ -1,10 +1,4 @@
-package demo.topsnackbar;
-
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-
-import java.lang.ref.WeakReference;
+package demo.library;
 
 /**
  * @author woniu
@@ -12,10 +6,18 @@ import java.lang.ref.WeakReference;
  * @description
  * @modifier
  * @date
- * @since 17/5/5 下午7:21
+ * @since 17/5/8 下午1:08
  */
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
-public class SnackbarManager {
+import java.lang.ref.WeakReference;
+
+/**
+ * Manages {@link TopSnackbar}s.
+ */
+class SnackbarManager {
 
     static final int MSG_TIMEOUT = 0;
 
