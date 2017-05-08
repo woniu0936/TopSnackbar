@@ -29,19 +29,16 @@ public class MainActivity extends AppCompatActivity {
 //                TopSnackbar.makeLayout(content, R.layout.layout_top_snackbar_dialog, TopSnackbar.LENGTH_INDEFINITE).show();
                 TopSnackbar.builder()
                         .view(content)
-                        .layout(R.layout.layout_top_snackbar_dialog)
+//                        .layout(R.layout.layout_top_snackbar_dialog)
                         .data(null)
-                        .click(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-//                                if (demo.library.R.id.btn_confirm == v.getId()) {
-//                                    Log.d(TAG, "confirm is onClick!");
-//                                }
-                                Log.d(TAG, "view tag is: " + v.getTag());
-                            }
-                        })
                         .duration(TopSnackbar.LENGTH_INDEFINITE)
                         .build()
+                        .action(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Log.d(TAG, "view tag is " + v.getTag());
+                            }
+                        })
                         .show();
 
             }

@@ -70,6 +70,7 @@ public class TopSnackbarDialogLayout extends TopSnackbarContentLayout {
         if (null != btnCancel) {
             btnCancel.setOnClickListener(l);
         }
+
 //        super.setOnClickListener(l);
     }
 

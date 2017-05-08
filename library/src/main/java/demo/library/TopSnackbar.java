@@ -13,6 +13,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -178,10 +179,11 @@ public class TopSnackbar extends BaseTransientTopBar<TopSnackbar> {
     }
 
     public static <T extends TopSnackbarContentLayout> T getLayout(@NonNull ViewGroup parent, @LayoutRes int layoutResId) {
+        if (layoutResId <= 0) {
+            layoutResId = R.layout.layout_top_snackbar_normal;
+        }
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        final T content =
-                (T) inflater.inflate(
-                        R.layout.layout_top_snackbar_dialog, parent, false);
+        final T content = (T) inflater.inflate(layoutResId, parent, false);
         return content;
     }
 
@@ -295,6 +297,17 @@ public class TopSnackbar extends BaseTransientTopBar<TopSnackbar> {
                 }
             });
         }
+        return this;
+    }
+
+    public TopSnackbar action(final View.OnClickListener listener) {
+        mView.getChildAt(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(v);
+                dispatchDismiss(BaseCallback.DISMISS_EVENT_ACTION);
+            }
+        });
         return this;
     }
 
@@ -432,6 +445,7 @@ public class TopSnackbar extends BaseTransientTopBar<TopSnackbar> {
 
         public TopSnackbar build() {
             parent = findSuitableParent(view);
+            Log.d("Builder", "layoutResId: " + layoutResId);
             content = getLayout(parent, layoutResId);
             content.initView(data);
             content.setOnClickListener(listener);
