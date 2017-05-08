@@ -22,8 +22,27 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_hello).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "hello world is onClick!");
-                TopSnackbar.make(content, "说的发送大公司是多个电饭锅电饭锅地方郭德纲水电费费郭德纲电饭锅地方高档房个的风格的", TopSnackbar.LENGTH_SHORT).show();
+//                Log.d(TAG, "hello world is onClick!");
+//                TopSnackbar.make(content, "hello world", TopSnackbar.LENGTH_SHORT).show();
+//                TopSnackbar.confirm(content, TopSnackbar.LENGTH_INDEFINITE).show();
+//                TopSnackbarDialogLayout topSnackbarDialogLayout = new TopSnackbarDialogLayout(MainActivity.this);
+//                TopSnackbar.makeLayout(content, R.layout.layout_top_snackbar_dialog, TopSnackbar.LENGTH_INDEFINITE).show();
+                TopSnackbar.builder()
+                        .parent(content)
+                        .content(R.layout.layout_top_snackbar_dialog)
+                        .onClick(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+//                                if (demo.library.R.id.btn_confirm == v.getId()) {
+//                                    Log.d(TAG, "confirm is onClick!");
+//                                }
+                                Log.d(TAG, "view tag is: " + v.getTag());
+                            }
+                        })
+                        .duration(TopSnackbar.LENGTH_INDEFINITE)
+                        .build()
+                        .show();
+
             }
         });
     }
