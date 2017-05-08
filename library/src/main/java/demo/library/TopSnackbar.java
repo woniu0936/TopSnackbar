@@ -2,6 +2,7 @@ package demo.library;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -389,31 +390,38 @@ public class TopSnackbar extends BaseTransientTopBar<TopSnackbar> {
     }
 
     public static final class Builder {
+        private View view;
+        @LayoutRes
+        private int layoutResId;
+        @Duration
+        private int duration;
+        private Bundle data;
+        private View.OnClickListener listener;
+
         private ViewGroup parent;
         private TopSnackbarContentLayout content;
-        private
-        @Duration
-        int duration;
 
         public Builder() {
 
         }
 
-        public Builder parent(@NonNull View view) {
-            parent = findSuitableParent(view);
+        public Builder view(@NonNull View view) {
+            this.view = view;
             return this;
         }
 
-        public Builder content(@LayoutRes int layoutResId) {
-            if (null == parent) {
-                throw new IllegalArgumentException("builder must have non-null parent");
-            }
-            content = getLayout(parent, layoutResId);
+        public Builder layout(@LayoutRes int layoutResId) {
+            this.layoutResId = layoutResId;
             return this;
         }
 
-        public Builder onClick(View.OnClickListener listener) {
-            content.setOnClickListener(listener);
+        public Builder data(Bundle data) {
+            this.data = data;
+            return this;
+        }
+
+        public Builder click(View.OnClickListener listener) {
+            this.listener = listener;
             return this;
         }
 
@@ -423,6 +431,10 @@ public class TopSnackbar extends BaseTransientTopBar<TopSnackbar> {
         }
 
         public TopSnackbar build() {
+            parent = findSuitableParent(view);
+            content = getLayout(parent, layoutResId);
+            content.initView(data);
+            content.setOnClickListener(listener);
             return new TopSnackbar(this);
         }
 

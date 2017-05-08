@@ -2,6 +2,7 @@ package demo.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -34,6 +35,11 @@ public class TopSnackbarNormalLayout extends TopSnackbarContentLayout {
         mMaxWidth = a.getDimensionPixelSize(R.styleable.SnackbarLayout_android_maxWidth, -1);
         mMaxInlineActionWidth = a.getDimensionPixelSize(R.styleable.SnackbarLayout_maxActionInlineWidth, -1);
         a.recycle();
+    }
+
+    @Override
+    void initView(Bundle data) {
+
     }
 
     @Override

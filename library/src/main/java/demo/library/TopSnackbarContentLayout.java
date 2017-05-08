@@ -10,6 +10,7 @@ package demo.library;
  */
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.util.AttributeSet;
@@ -32,6 +33,6 @@ public abstract class TopSnackbarContentLayout extends LinearLayout implements
         super(context, attrs);
     }
 
-//    abstract void setOnClickListener();
+    abstract void initView(Bundle data);
 
 }

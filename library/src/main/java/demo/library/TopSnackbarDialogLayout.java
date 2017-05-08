@@ -1,6 +1,7 @@
 package demo.library;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -34,6 +35,11 @@ public class TopSnackbarDialogLayout extends TopSnackbarContentLayout {
     public TopSnackbarDialogLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+    }
+
+    @Override
+    void initView(Bundle data) {
+
     }
 
     @Override

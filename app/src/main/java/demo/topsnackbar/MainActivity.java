@@ -28,9 +28,10 @@ public class MainActivity extends AppCompatActivity {
 //                TopSnackbarDialogLayout topSnackbarDialogLayout = new TopSnackbarDialogLayout(MainActivity.this);
 //                TopSnackbar.makeLayout(content, R.layout.layout_top_snackbar_dialog, TopSnackbar.LENGTH_INDEFINITE).show();
                 TopSnackbar.builder()
-                        .parent(content)
-                        .content(R.layout.layout_top_snackbar_dialog)
-                        .onClick(new View.OnClickListener() {
+                        .view(content)
+                        .layout(R.layout.layout_top_snackbar_dialog)
+                        .data(null)
+                        .click(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
 //                                if (demo.library.R.id.btn_confirm == v.getId()) {
