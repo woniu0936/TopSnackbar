@@ -301,14 +301,19 @@ public class TopSnackbar extends BaseTransientTopBar<TopSnackbar> {
     }
 
     public TopSnackbar action(final View.OnClickListener listener) {
-        mView.getChildAt(0).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClick(v);
-                dispatchDismiss(BaseCallback.DISMISS_EVENT_ACTION);
-            }
-        });
-        return this;
+        if (null == listener) {
+            dispatchDismiss(BaseCallback.DISMISS_EVENT_ACTION);
+            return this;
+        } else {
+            mView.getChildAt(0).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onClick(v);
+                    dispatchDismiss(BaseCallback.DISMISS_EVENT_ACTION);
+                }
+            });
+            return this;
+        }
     }
 
     /**
