@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 //                TopSnackbarDialogLayout topSnackbarDialogLayout = new TopSnackbarDialogLayout(MainActivity.this);
 //                TopSnackbar.makeLayout(content, R.layout.layout_top_snackbar_dialog, TopSnackbar.LENGTH_INDEFINITE).show();
                 TopSnackbar.builder()
-                        .view(content)
-//                        .layout(R.layout.layout_top_snackbar_dialog)
+                        .view(findViewById(android.R.id.content))
+                        .layout(R.layout.layout_top_snackbar_dialog)
                         .data(null)
                         .duration(TopSnackbar.LENGTH_INDEFINITE)
                         .build()
